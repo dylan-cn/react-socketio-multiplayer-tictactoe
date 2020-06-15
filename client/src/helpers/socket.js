@@ -1,6 +1,6 @@
 import socketIOClient from 'socket.io-client';
 
-const socket = socketIOClient('http://localhost:8080');
+const socket = socketIOClient(window.location.host);
 
 
 export default socket;
