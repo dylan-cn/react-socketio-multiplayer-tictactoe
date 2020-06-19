@@ -59,14 +59,6 @@ io.on("connection", socket => {
 
 app.use(express.static(path.join(__dirname, '/build')));
 
-app.get('/getFilled', function (req, res) {
-    res.status(200).send(gameManager.filledGames);
-});
-
-app.get('/getUnfilled', function (req, res) {
-    res.status(200).send(gameManager.unfilledGames);
-});
-
 app.get('/api/game_status', function (req, res) {
     res.status(200).send(gameManager.gameStatus);
 });
@@ -80,4 +72,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/build/index.html'));
 });
 
-server.listen(process.env.PORT || 80, () => console.log(`Listening on port 8080`));
+const port = process.env.PORT || 80;
+
+server.listen(port, () => console.log(`Listening on port ${port}`));
